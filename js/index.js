@@ -1,4 +1,5 @@
 let nowShowPlayer = 0;
+let pNumber = '';
 
 $(document).ready(function () {
 	$('#areaShowLineup').hide();
@@ -17,14 +18,13 @@ $(document).ready(function () {
 		for (let i = 1; i <= 9; i++) {
 			let position = $('#position_' + i).val(); // 位置數字
 			let number = $('#num_' + i).val(); // 背號
-			let name = $('#name_' + i).val(); // 姓名
 
-			if (position && number && name) {
+			if (position && number) {
 				// 設定位置圖片
 				$('#areaShowLineup #position_' + i).attr('src', 'img/position/' + position + '.png');
 
 				// 設定球員圖片（需額外找到對應的 <img>，本範例假設為 id="player_X"）
-				let playerImgPath = 'img/player/' + number + '_' + name + '.png';
+				let playerImgPath = 'img/player/' + number + '.png';
 
 				checkImageExists(playerImgPath, function(exists) {
 					if (exists) {
@@ -37,9 +37,8 @@ $(document).ready(function () {
 		}
 
 		// 投手設定
-		let number = $('#num_10').val(); // 背號
-		let name = $('#name_10').val(); // 姓名
-		let playerImgPath = 'img/player/' + number + '_' + name + '.png';
+		pNumber = $('#num_10').val(); // 背號
+		let playerImgPath = 'img/player/' + pNumber + '.png';
 
 		checkImageExists(playerImgPath, function(exists) {
 			if (exists) {
@@ -59,11 +58,10 @@ $(document).ready(function () {
 	$('#showPlayer').click(function () {
 		if(nowShowPlayer != 10) {
 			nowShowPlayer++;
-			console.log(nowShowPlayer);
 			let target = $('#areaShowPlayer' + nowShowPlayer);
 			target.removeClass('d-none').addClass('fade-drop-in');
 
-			if(nowShowPlayer == 10) {
+			if(nowShowPlayer == 10 || (nowShowPlayer == 9 && pNumber == '')) {
 				$(this).prop('disabled', true);
 			}
 		}
@@ -76,21 +74,12 @@ function checkAllInputsFilled() {
 	for (let i = 1; i <= 9; i++) {
 		const position = $('#position_' + i).val();
 		const num = $('#num_' + i).val();
-		const name = $('#name_' + i).val();
 
-		if (!position || !num || !name) {
+		if (!position || !num ) {
 			allFilled = false;
 			break;
 		}
  	}
-
-	// 投手欄位（第10筆）只需要檢查號碼和姓名
-	const num10 = $('#num_10').val();
-	const name10 = $('#name_10').val();
-
-	if (!num10 || !name10) {
-		allFilled = false;
-	}
 
 	if (allFilled) {
 		$('#btnStart').prop('disabled', false);
