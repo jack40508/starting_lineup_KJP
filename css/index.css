@@ -13,3 +13,31 @@
 	animation: fadeDrop 0.4s ease-out forwards;
 	display: flex !important; /* Bootstrap 用 */
 }
+
+.title {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-family: 'Anton', sans-serif;
+	letter-spacing: 3px;
+	color: #c1282d;
+	text-shadow:
+	-1px -1px 0 #c69c6c,  /* 上左 */
+	1px -1px 0 #c69c6c,  /* 上右 */
+	-1px  1px 0 #c69c6c,  /* 下左 */
+	1px  1px 0 #c69c6c;  /* 下右 */
+}
+
+.title-kanji {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-family: 'Anton', 'Noto Sans JP', sans-serif;
+	letter-spacing: 3px;
+	color: #c1282d;
+	text-shadow:
+	-1px -1px 0 #c69c6c,  /* 上左 */
+	1px -1px 0 #c69c6c,  /* 上右 */
+	-1px  1px 0 #c69c6c,  /* 下左 */
+	1px  1px 0 #c69c6c;  /* 下右 */
+}

@@ -17,11 +17,14 @@
 		<!-- include font-->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Anton&family=Kosugi&display=swap" rel="stylesheet">
+
+		<!--Icon-->
+  		<link rel="icon" href="img/icon/icon.ico" type="image/x-icon" />
 	</head>
 	<body class="bg-black text-white pb-5">
 		<div class="container" id="areaInputData">
-			<h1 class="mt-4">STARTING LINEUP</h1>
+			<h1 class="mt-4 title"><img src="img/index/logo.png" style="height: 2.5em;">STARTING LINEUP</h1>
 			<div class="row mt-5 pb-2 border-bottom border-white">
 				<div class="col-md-1">
 					<span>打順</span>
@@ -337,8 +340,11 @@
 				</div>
 			</div>
 			<div class="position-relative w-100">
-				<button class="btn btn-outline-light position-absolute translate-middle-x" style="bottom: 20px; left: 10vw;" id="showPlayer">
+				<button class="btn btn-outline-light position-absolute translate-middle-x" style="bottom: 80px; left: 10vw;  min-width: 10em;" id="showPlayerBtn">
 					次の選手を表示
+				</button>
+				<button class="btn btn-outline-light position-absolute translate-middle-x" style="bottom: 20px; left: 10vw;  min-width: 10em;" id="inputAgainBtn" disabled>
+					もう一度入力する
 				</button>
 			</div>
 		</div>
