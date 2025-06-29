@@ -55,7 +55,7 @@ $(document).ready(function () {
 		$('#areaShowLineup').show();
 	});
 
-	$('#showPlayer').click(function () {
+	$('#showPlayerBtn').click(function () {
 		if(nowShowPlayer != 10) {
 			nowShowPlayer++;
 			let target = $('#areaShowPlayer' + nowShowPlayer);
@@ -63,7 +63,24 @@ $(document).ready(function () {
 
 			if(nowShowPlayer == 10 || (nowShowPlayer == 9 && pNumber == '')) {
 				$(this).prop('disabled', true);
+				$('#inputAgainBtn').prop('disabled', false);
 			}
+		}
+	});
+
+	$('#inputAgainBtn').click(function () {
+		// 隱藏展示區，顯示輸入區
+		$('#areaShowLineup').hide();
+		$('#areaInputData').show();
+		$('body').css('overflow', 'auto');
+		
+		// 重置展示區狀態
+		nowShowPlayer = 0;
+		$('#showPlayerBtn').prop('disabled', false);
+		$('#inputAgainBtn').prop('disabled', true);
+		for (let i = 1; i<=10; i++) {
+			let target = $('#areaShowPlayer' + i);
+			target.addClass('d-none').removeClass('fade-drop-in');
 		}
 	});
 });
